@@ -1,0 +1,19 @@
+{
+  "name": "project_school",
+  "version": "1.0.0",
+  "description": "",
+  "main": "students.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chart.js": "^4.4.1"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

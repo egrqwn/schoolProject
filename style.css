@@ -1,0 +1,292 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: '', sans-serif;
+    overflow-x: hidden;
+}
+
+.menu{
+    height: 7%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    position: fixed;
+    top:0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-1 {
+    margin-left: 2vh;
+    height: 100%;
+    display: flex;
+}
+
+.menu-2 {
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    margin-right: 2vh;
+}
+
+.menu-link {
+    text-decoration: none;
+    margin: 0 20px;
+    color: #15497E;
+    font-size: 20px;
+    transition: 0.5s;
+    height: 5vh;
+    width: 18vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.menu-link:hover {
+    text-decoration: underline;
+}
+
+.img-menu { 
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 150px;
+}
+
+.h1-head {
+    margin-top: 50px;
+    font-size: 42px;
+    color: #15497E;
+    display: flex;
+    overflow: hidden;
+    text-align: center;
+}
+
+.search {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.p-search {
+    height: 30px;
+    font-size: 20px;
+    color: white;
+}
+
+.block-choice-prof {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 70%;
+}
+
+.icon-subject {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    height: 250px;
+    width: 210px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    margin: 10px 10px;
+    margin: 20px;
+    transition: 1s;
+}
+
+.icon-subject:hover {
+        transform: scale(1.05);
+}
+
+.subject {
+    height: 128px;
+    width: 128px;
+}
+
+.choice-subject {
+    background: #cfcaca;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.subject-pick {
+    width: 500px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.pick-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.delete {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.vakancies {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+
+.prof {
+    display: flex;
+    justify-content: center;    
+}
+
+.prof > .column-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.column-card > p {
+    padding: 0 10px;
+    text-align: center;
+}
+
+.column-card > button {
+    background: #3912e6;
+    border: none;
+    height: 35px;
+    width: 160px;
+    border-radius: 3vh;
+    color: white;
+    transition: 0.5s;
+}
+
+.column-card > button:hover {
+    color: #e61212;
+    box-shadow: 0 5px 20px rgba(231, 21, 21, 0.3);
+
+}
+
+.prof > div {
+    box-shadow: 0 10px 25px rgba(189, 178, 186, 0.3);
+}
+
+.prof  img {
+   height: 40vh;
+}
+
+.prof > div{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prof > h3 {
+    width: 25%;
+    font-size: 20px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prof > p {
+    width: 25%;
+    font-size: 14px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.vakanc {
+    display: flex;
+    box-shadow: 0 0 10px #e21616;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+    height: 320px;
+    justify-content: space-around;
+    padding: 0 10px;
+}
+
+.city-price {
+    display: flex;
+}
+
+.city {
+    color: #3912e6;
+}
+
+.city-price > p {
+    padding: 0 5vh;
+}
+
+.requirements {
+    padding: 10px 0;
+}
+
+.requirements > h4 {
+    padding: 10px 0;
+}
+
+.vakanc > hr {
+    width: 25vh;
+}
+
+span {
+    color: #e61414;
+}
+
+span > a {
+    text-decoration: none;
+    color: #3912e6;
+}
+
+.check-vakanc:hover {
+    color: #e61414;
+    text-decoration: underline;
+
+}
+
+.check-vakanc:hover > span > a  {
+    color: #e61414;
+}
+
+.slider {
+    position: relative;
+    width: 65%;
+    height: 400px;
+    overflow: hidden;
+    border: 1px solid black;
+  }
+   
+.slide {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s;
+    display: flex;
+    justify-content: space-around;
+}
+
+.slide-img {
+    width: 70%;
+    height: 100%;
+}
+
+.slide:first-child {
+    opacity: 1;
+}
+   
+.slide > p {
+    color: black;
+    font-size: 20px;
+    display: flex;
+    justify-content: flex-start;
+    width: 50%;
+}
