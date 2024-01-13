@@ -1,0 +1,67 @@
+.prof {
+    display: flex;
+    justify-content: center;    
+}
+
+.prof > .column-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+
+
+.column-card > p {
+    padding: 0 10px;
+    text-align: center;
+}
+
+.column-card > button {
+    background: #3912e6;
+    border: none;
+    height: 35px;
+    width: 160px;
+    border-radius: 3vh;
+    color: white;
+    transition: 0.5s;
+}
+
+.column-card > button:hover {
+    color: #e61212;
+    box-shadow: 0 5px 20px rgba(231, 21, 21, 0.3);
+
+}
+
+.prof > div {
+    box-shadow: 0 10px 25px rgba(189, 178, 186, 0.3);
+}
+
+.prof  img {
+   height: 40vh;
+}
+
+.prof > div{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prof > h3 {
+    width: 25%;
+    font-size: 20px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prof > p {
+    width: 25%;
+    font-size: 14px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+}
