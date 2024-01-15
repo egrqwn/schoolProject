@@ -1,0 +1,15 @@
+.subject-pick {
+    width: 500px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.pick-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.delete {
+    padding: 10px 20px;
+    font-size: 16px;
+}
