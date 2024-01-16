@@ -70,8 +70,10 @@ let btnDelete = document.querySelector(".delete");
 let vakanc = document.querySelector(".vakancies");
 
 function fastFetch() {
-  fetch(url + "?" + new URLSearchParams((params.text)))
-    .then((response) => response.json())
+  fetch(url + "?" + new URLSearchParams(params))
+    .then((response) => {
+      return response.json();
+    })
     .then((data) => console.log(data))
     .catch((error) => console.error(error));
 }
@@ -109,14 +111,14 @@ btnChoice.onclick = () => {
       let el4 = document.createElement("button");
       el4.innerHTML = "Посмотреть вакансию";
       columnCard.appendChild(el4);
-      el4.onclick= () => {
+      el4.onclick = () => {
         params.text = "";
         params.text = name;
         console.log(name);
         console.log(params.text);
 
         fastFetch();
-      }
+      };
 
       let headhunt = name;
       headhunt =
