@@ -70,7 +70,7 @@ let btnDelete = document.querySelector(".delete");
 let vakanc = document.querySelector(".vakancies");
 
 function fastFetch() {
-  fetch(url + "?" + new URLSearchParams((params.text = "")))
+  fetch(url + "?" + new URLSearchParams((params.text)))
     .then((response) => response.json())
     .then((data) => console.log(data))
     .catch((error) => console.error(error));
@@ -78,7 +78,7 @@ function fastFetch() {
 
 btnChoice.onclick = () => {
   hhClear();
-  fastFetch();
+  // fastFetch();
   profBlock.innerHTML = "";
   for (let item of choiceSet) {
     let prof = professions[item];
@@ -109,6 +109,14 @@ btnChoice.onclick = () => {
       let el4 = document.createElement("button");
       el4.innerHTML = "Посмотреть вакансию";
       columnCard.appendChild(el4);
+      el4.onclick= () => {
+        params.text = "";
+        params.text = name;
+        console.log(name);
+        console.log(params.text);
+
+        fastFetch();
+      }
 
       let headhunt = name;
       headhunt =
