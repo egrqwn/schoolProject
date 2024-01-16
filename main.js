@@ -1,5 +1,6 @@
 import profDescription from "./profDescription.js";
 import professions from "./professions.js";
+import changeSlide from "./slider.js";
 
 // let selectProf = document.querySelector('.subject');
 // let select1 = document.querySelector('.professions1');
@@ -156,14 +157,5 @@ function hhClear() {
   }
 }
 
-let currentIndex = 0;
-const slides = document.querySelectorAll('.slide');
 const slideInterval = 5000;
-
-function changeSlide() {
-  slides[currentIndex].style.opacity = 0;
-  currentIndex = (currentIndex + 1) % slides.length;
-  slides[currentIndex].style.opacity = 1;
-}
-
 setInterval(changeSlide, slideInterval);
