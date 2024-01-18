@@ -1,0 +1,22 @@
+.go-top {
+    position: fixed; 
+    right: 20px; 
+    bottom: 5%; 
+    transform: translateY(-50%); 
+    display: none; 
+    font-size: 20px;
+    color: rgba(0, 51, 153, 0.5);
+    border: 1px solid rgba(0, 51, 153, 0.5);
+    background-color: rgba(0, 51, 153, 0.1);
+    padding: 15px 10px;
+  }
+  
+  .go-top:hover {
+    color: rgba(0, 51, 153, 0.8);
+    border: 1px solid rgba(0, 51, 153, 0.8);
+    background-color: rgba(0, 51, 153, 0.15);
+  }
+  
+  .go-top--show {
+    display: block;
+  }

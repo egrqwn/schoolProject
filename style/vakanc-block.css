@@ -1,0 +1,8 @@
+.vakanc {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: #e6e0e0;
+    /* height: 80vh;
+    overflow: auto; */
+}

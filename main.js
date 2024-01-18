@@ -1,6 +1,9 @@
 import profDescription from "./profDescription.js";
 import professions from "./professions.js";
 import changeSlide from "./slider.js";
+import trackScroll from "./btn-top.js";
+import goTop from "./btn-top.js";
+
 
 // let selectProf = document.querySelector('.subject');
 // let select1 = document.querySelector('.professions1');

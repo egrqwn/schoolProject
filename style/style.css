@@ -2,9 +2,12 @@
 @import url(./header.css);
 @import url(./professions.css);
 @import url(./vakancies.css);
-@import url(./vakanc.css);
+@import url(./vakanc-card.css);
 @import url(./slider.css);
 @import url(./subjectPick.css);
+@import url(./vakanc-block.css);
+@import url(./btn-top.css);
+
 
 * {
     margin: 0;
