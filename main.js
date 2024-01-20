@@ -70,15 +70,23 @@ let classArray = document.querySelector(".block-choice-prof").children;
 let btnChoice = document.querySelector(".pick-btn");
 let profBlock = document.querySelector(".professions");
 let btnDelete = document.querySelector(".delete");
-let vakanc = document.querySelector(".vakancies");
+let vakancies = document.querySelector(".vakancies");
+let vakanciesConteiner = document.querySelector(".vakancies-conteiner");
 
 function fastFetch() {
   fetch(url + "?" + new URLSearchParams(params))
     .then((response) => {
       return response.json();
     })
-    .then((data) => console.log(data))
+    .then((data) => {console.log(data)
+    return data})
     .catch((error) => console.error(error));
+}
+
+function fillvakanc () {
+  let items = fastFetch();
+  let vakancCard = document.createElement('div');
+  vakanciesConteiner.appendChild(vakancCard);
 }
 
 btnChoice.onclick = () => {
@@ -112,6 +120,7 @@ btnChoice.onclick = () => {
       columnCard.appendChild(el3);
 
       let el4 = document.createElement("button");
+      el4.classList.add("check-vakanc")
       el4.innerHTML = "Посмотреть вакансию";
       columnCard.appendChild(el4);
       el4.onclick = () => {
@@ -131,7 +140,7 @@ btnChoice.onclick = () => {
       hhru = document.createElement("script");
       hhru.className = "hh-script";
       hhru.src = headhunt;
-      vakanc.appendChild(hhru);
+      vakancies.appendChild(hhru);
     });
   }
 };
@@ -164,7 +173,7 @@ btnDelete.onclick = () => {
 };
 
 function hhClear() {
-  let divs = vakanc.querySelectorAll("div");
+  let divs = vakancies.querySelectorAll("div");
   for (let i = divs.length - 1; i >= 0; i--) {
     divs[i].remove();
   }
