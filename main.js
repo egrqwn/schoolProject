@@ -93,15 +93,13 @@ function fastFetch() {
         let cityPrice = document.createElement("div");
         cityPrice.classList.add("city-price");
 
-        if (data.items[i].address.city) {
+        if (data.items[i].address !== null) {
           let p = document.createElement("p");
           p.classList.add("city");
-          p.innerHTML = data['items'][i].address.city;
+          p.innerHTML = data["items"][i].address.city;
           vakancCard.appendChild(p);
         }
-        
-        let salary = document.createElement('p');
-
+        let salary = document.createElement("p");
       }
       return data;
     })
