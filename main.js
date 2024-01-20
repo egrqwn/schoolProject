@@ -4,7 +4,6 @@ import changeSlide from "./slider.js";
 import trackScroll from "./btn-top.js";
 import goTop from "./btn-top.js";
 
-
 // let selectProf = document.querySelector('.subject');
 // let select1 = document.querySelector('.professions1');
 
@@ -78,15 +77,21 @@ function fastFetch() {
     .then((response) => {
       return response.json();
     })
-    .then((data) => {console.log(data)
-    return data})
+    .then((data) => {
+      console.log(data);
+      console.log(typeof data);
+      for (let i = 0; i < data["items"].length; i++) {
+        console.log(1);
+        let vakancCard = document.createElement("div");
+        vakancCard.classList.add("vakanc-card");
+        vakanciesConteiner.appendChild(vakancCard);
+        let h3 = document.createElement("h3");
+        h3.innerHTML = data["items"][i].name;
+        vakancCard.appendChild(h3);
+      }
+      return data;
+    })
     .catch((error) => console.error(error));
-}
-
-function fillvakanc () {
-  let items = fastFetch();
-  let vakancCard = document.createElement('div');
-  vakanciesConteiner.appendChild(vakancCard);
 }
 
 btnChoice.onclick = () => {
@@ -120,7 +125,7 @@ btnChoice.onclick = () => {
       columnCard.appendChild(el3);
 
       let el4 = document.createElement("button");
-      el4.classList.add("check-vakanc")
+      el4.classList.add("check-vakanc");
       el4.innerHTML = "Посмотреть вакансию";
       columnCard.appendChild(el4);
       el4.onclick = () => {
