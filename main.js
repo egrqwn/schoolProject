@@ -85,9 +85,23 @@ function fastFetch() {
         let vakancCard = document.createElement("div");
         vakancCard.classList.add("vakanc-card");
         vakanciesConteiner.appendChild(vakancCard);
+
         let h3 = document.createElement("h3");
         h3.innerHTML = data["items"][i].name;
         vakancCard.appendChild(h3);
+
+        let cityPrice = document.createElement("div");
+        cityPrice.classList.add("city-price");
+
+        if (data.items[i].address.city) {
+          let p = document.createElement("p");
+          p.classList.add("city");
+          p.innerHTML = data['items'][i].address.city;
+          vakancCard.appendChild(p);
+        }
+        
+        let salary = document.createElement('p');
+
       }
       return data;
     })
