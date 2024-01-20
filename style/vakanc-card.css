@@ -3,15 +3,60 @@
     box-shadow: 0 0 5px #e21616;
     flex-direction: column;
     align-items: center;
-    width: 250px;
-    height: 320px;
+    width: 270px;
+    height: 350px;
     justify-content: space-around;
-    padding: 0 10px;
+    padding: 10px 10px;
     margin: 10px 10px ;
     background: #ffffff;
+}
+
+.vakanc-card > h3 {
+    font-size: 20px;
+     height: 20%;
+     text-align: center;
 }
 
 .vakanc-card > hr {
     width: 25vh;
 }
 
+.city-price {
+    display: flex;
+    justify-content: space-around;
+}
+
+.city {
+    color: #3912e6;
+}
+
+.city-price > p {
+    padding: 0 5px;
+}
+
+.requirements > p {
+    overflow: auto;
+    height: 100px;
+}
+
+.requirements > h4 {
+    padding: 5px 0;
+}
+
+span {
+    color: #e61414;
+}
+
+span > a {
+    text-decoration: none;
+    color: #e61414;
+}
+
+.check-vakanc:hover {
+    color: #e61414;
+    text-decoration: underline;
+}
+
+.check-vakanc:hover > span > a  {
+    color: #e61414;
+}

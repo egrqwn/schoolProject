@@ -4,63 +4,13 @@ import changeSlide from "./slider.js";
 import trackScroll from "./btn-top.js";
 import goTop from "./btn-top.js";
 
-// let selectProf = document.querySelector('.subject');
-// let select1 = document.querySelector('.professions1');
-
-// select1.onchange = function() {
-//     let value  = select1.value;
-//     console.log(value);
-//     let text = select1.options[select1.selectedIndex].text;
-//     console.log(text);
-// }
-
-// let select2 = document.querySelector('.professions2');
-
-// select2.onchange = function() {
-//     let value = select2.value;
-//     console.log(value);
-//     let text = select2.options[select2.selectedIndex].text;
-//     console.log(text);
-// }
-
-// import Chart from 'chart.js'
-
-// (async function() {
-//   const data = [
-//     { year: 2010, count: 10 },
-//     { year: 2011, count: 20 },
-//     { year: 2012, count: 15 },
-//     { year: 2013, count: 25 },
-//     { year: 2014, count: 22 },
-//     { year: 2015, count: 30 },
-//     { year: 2016, count: 28 },
-//   ];
-
-//   new Chart(
-//     document.getElementById('acquisitions'),
-//     {
-//       type: 'bar',
-//       data: {
-//         labels: data.map(row => row.year),
-//         datasets: [
-//           {
-//             label: 'Acquisitions by year',
-//             data: data.map(row => row.count)
-//           }
-//         ]
-//       }
-//     }
-//   );
-// })();
-
 const url = "https://api.hh.ru/vacancies";
 const params = {
   text: "",
-  per_page: 100,
+  per_page: 70,
   page: 1,
 };
 
-//console.log(url + "?" + new URLSearchParams(params));
 
 let choiceSet = new Set();
 
@@ -82,6 +32,7 @@ function fastFetch() {
       console.log(typeof data);
       for (let i = 0; i < data["items"].length; i++) {
         console.log(1);
+
         let vakancCard = document.createElement("div");
         vakancCard.classList.add("vakanc-card");
         vakanciesConteiner.appendChild(vakancCard);
@@ -92,15 +43,55 @@ function fastFetch() {
 
         let cityPrice = document.createElement("div");
         cityPrice.classList.add("city-price");
+        vakancCard.appendChild(cityPrice);
 
         if (data.items[i].address !== null) {
           let p = document.createElement("p");
           p.classList.add("city");
           p.innerHTML = data["items"][i].address.city;
-          vakancCard.appendChild(p);
+          cityPrice.appendChild(p);
         }
-        let salary = document.createElement("p");
+
+        if (data.items[i].salary !== null) {
+          let salary = document.createElement("p");
+          salary.innerHTML = data["items"][i].salary.from;
+          cityPrice.appendChild(salary);
+
+          let currency = document.createElement("p");
+          currency.innerHTML = data["items"][i].salary.currency;
+          cityPrice.appendChild(currency);
+        }
+
+        let requirements = document.createElement("div");
+        requirements.classList.add("requirements");
+        vakancCard.appendChild(requirements);
+
+        let h4 = document.createElement("h4");
+        h4.innerHTML = "Требования";
+        requirements.appendChild(h4);
+
+        let pRequirements = document.createElement("p");
+        pRequirements.innerHTML = data["items"][i].snippet.requirement;
+        requirements.appendChild(pRequirements);
+
+        let hr = document.createElement("hr");
+        vakancCard.appendChild(hr);
+
+        let checkVakanc = document.createElement("div");
+        checkVakanc.classList.add("check-vakanc");
+        vakancCard.appendChild(checkVakanc);
+
+        let span = document.createElement("span");
+        checkVakanc.appendChild(span);
+
+        let a = document.createElement("a");
+        // a.href.innerHTML = data["items"][i].adress.alternate_url;
+        a.innerHTML = "Посмотреть вакансию на hh.ru";
+        span.appendChild(a);
+
       }
+
+    
       return data;
     })
     .catch((error) => console.error(error));
@@ -110,6 +101,7 @@ btnChoice.onclick = () => {
   hhClear();
   // fastFetch();
   profBlock.innerHTML = "";
+
   for (let item of choiceSet) {
     let prof = professions[item];
     prof.map((name) => {
@@ -138,26 +130,17 @@ btnChoice.onclick = () => {
 
       let el4 = document.createElement("button");
       el4.classList.add("check-vakanc");
-      el4.innerHTML = "Посмотреть вакансию";
+      el4.innerHTML = "Перейти к вакансии";
       columnCard.appendChild(el4);
+      
       el4.onclick = () => {
         params.text = "";
         params.text = name;
-        console.log(name);
-        console.log(params.text);
 
         fastFetch();
       };
 
-      let headhunt = name;
-      headhunt =
-        "https://api.hh.ru/widgets/vacancies/search?count=5&locale=RU&links_color=1560b2&border_color=1560b2&text=" +
-        encodeURIComponent(headhunt) +
-        "&currency=RUR&only_with_salary=false";
-      hhru = document.createElement("script");
-      hhru.className = "hh-script";
-      hhru.src = headhunt;
-      vakancies.appendChild(hhru);
+     
     });
   }
 };
@@ -183,6 +166,7 @@ btnDelete.onclick = () => {
   choiceSet.clear();
   params.text = "";
   profBlock.innerHTML = "";
+  vakanciesConteiner.innerHTML = "";
   hhClear();
   for (let i of classArray) {
     i.classList.remove("choice-subject");
