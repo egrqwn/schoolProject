@@ -45,14 +45,12 @@ function fastFetch() {
         cityPrice.classList.add("city-price");
         vakancCard.appendChild(cityPrice);
 
-        if (data.items[i].address !== null) {
+        if (data.items[i].address !== null && data.items[i].salary !== null) {
           let p = document.createElement("p");
           p.classList.add("city");
           p.innerHTML = data["items"][i].address.city;
           cityPrice.appendChild(p);
-        }
 
-        if (data.items[i].salary !== null) {
           let salary = document.createElement("p");
           salary.innerHTML = data["items"][i].salary.from;
           cityPrice.appendChild(salary);
@@ -61,7 +59,7 @@ function fastFetch() {
           currency.innerHTML = data["items"][i].salary.currency;
           cityPrice.appendChild(currency);
         }
-
+     
         let requirements = document.createElement("div");
         requirements.classList.add("requirements");
         vakancCard.appendChild(requirements);
@@ -85,7 +83,9 @@ function fastFetch() {
         checkVakanc.appendChild(span);
 
         let a = document.createElement("a");
-        // a.href.innerHTML = data["items"][i].adress.alternate_url;
+        // document.getElementsByTagName("a").href=["items"][i].alternate_url;
+        //  a.setAttribute('href', ["items"][i].alternate_url);
+        a.href = data["items"][i]["alternate_url"];       
         a.innerHTML = "Посмотреть вакансию на hh.ru";
         span.appendChild(a);
 
