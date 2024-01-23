@@ -11,7 +11,6 @@ const params = {
   page: 1,
 };
 
-
 let choiceSet = new Set();
 
 let hhru = document.querySelector(".hh-script");
@@ -83,15 +82,16 @@ function fastFetch() {
         checkVakanc.appendChild(span);
 
         let a = document.createElement("a");
+<<<<<<< HEAD
         // document.getElementsByTagName("a").href=["items"][i].alternate_url;
         //  a.setAttribute('href', ["items"][i].alternate_url);
         a.href = data["items"][i]["alternate_url"];       
+=======
+>>>>>>> 
         a.innerHTML = "Посмотреть вакансию на hh.ru";
         span.appendChild(a);
-
       }
 
-    
       return data;
     })
     .catch((error) => console.error(error));
@@ -132,15 +132,13 @@ btnChoice.onclick = () => {
       el4.classList.add("check-vakanc");
       el4.innerHTML = "Перейти к вакансии";
       columnCard.appendChild(el4);
-      
+
       el4.onclick = () => {
         params.text = "";
         params.text = name;
 
         fastFetch();
       };
-
-     
     });
   }
 };
