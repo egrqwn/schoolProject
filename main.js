@@ -82,12 +82,9 @@ function fastFetch() {
         checkVakanc.appendChild(span);
 
         let a = document.createElement("a");
-<<<<<<< HEAD
-        // document.getElementsByTagName("a").href=["items"][i].alternate_url;
-        //  a.setAttribute('href', ["items"][i].alternate_url);
+
         a.href = data["items"][i]["alternate_url"];       
-=======
->>>>>>> 
+
         a.innerHTML = "Посмотреть вакансию на hh.ru";
         span.appendChild(a);
       }

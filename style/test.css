@@ -1,0 +1,59 @@
+h1 {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.variants-conteiner {
+    display: flex;
+    justify-content: center;
+
+}
+
+.varint-pick {
+    margin: 20px 10px;
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 200px;
+    font-size: 18px;
+    background: #f0eded;
+    transition: 0.5s;
+}
+
+.varint-pick:hover {
+    background: #b3b2b2;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+
+}
+
+.btn-back-forward {
+    display: flex;
+    justify-content: center;
+    margin: 10px 10px;
+}
+
+.btn-back-forward > button {
+    margin: 5px 40px;
+    padding: 10px 10px;
+}
+
+.block-change {
+    display: flex;
+    justify-content: center;
+}
+
+.block-change > button {
+    padding: 10px 10px;
+    border: none;
+    transition: 0.5s;
+}
+
+.selected {
+    background-color: blue;
+}
+
+/* .block-change > button:hover {
+
+} */
