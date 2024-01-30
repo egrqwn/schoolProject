@@ -7,6 +7,7 @@ let backBtn = document.querySelector('.btn-back');
 let forwardBtn = document.querySelector('.btn-forward');
 
 let endBtn = document.querySelector('.btn-end');
+let againBtn = document.querySelector(".block-again");
 
 let aBtn = document.querySelector('.btn-a');
 let bBtn = document.querySelector('.btn-b');
@@ -18,19 +19,31 @@ function fillContent() {
 
 fillContent();
 
+function checkPick() {
+    if (aBtn.classList.contains('selected') || bBtn.classList.contains('selected')) {
+        return true;
+    }
+    return false;
+}
+
+forwardBtn.disabled = true;
+
 forwardBtn.onclick=function() {
+    
     if (currentIndex < varA.length -1) {
         currentIndex += 1;
+        console.log(currentIndex);
     }
     fillContent();
     aBtn.classList.remove('selected');
     bBtn.classList.remove('selected');
-    if (results[currentIndex].includes("a") && results[currentIndex] != undefined) {
+    if (results[currentIndex].includes("button") && results[currentIndex] != undefined) {
         aBtn.classList.add('selected');
     }
     if (results[currentIndex].includes("b") && results[currentIndex] != undefined) {
             bBtn.classList.add('selected');
     }
+    forwardBtn.disabled = true;
 }
 
 backBtn.onclick=function() {
@@ -54,7 +67,7 @@ aBtn.onclick = function() {
     console.log(results);
     bBtn.classList.remove("selected");
     aBtn.classList.add("selected");
-   
+    forwardBtn.disabled = false;
 }
 
 bBtn.onclick = function() {
@@ -63,4 +76,19 @@ bBtn.onclick = function() {
     console.log(results);
     aBtn.classList.remove("selected");
     bBtn.classList.add("selected");
+    forwardBtn.disabled = false;
 }
+
+againBtn.onclick = function() {
+    currentIndex = 0;
+    results = [];
+    aBtn.innerHTML = varA[currentIndex];
+    bBtn.innerHTML = varB[currentIndex];
+    aBtn.classList.remove("btn-a");
+    bBtn.classList.remove("btn-b");
+    aBtn.classList.add("btn-a");
+    bBtn.classList.add("btn-b");
+    aBtn.classList.remove("selected");
+    bBtn.classList.remove("selected");
+}
+
