@@ -9,16 +9,20 @@
 
 // import "./test.js";
 
-
-
 // similarity();
+let resultsArr = [];
 
-let conclus1 = localStorage.getItem('conclusion2');
-let conclus2 = localStorage.getItem('conclusion6');
+for (let key in localStorage) {
+  if (typeof localStorage[key] == "string") {
+    resultsArr.push(localStorage[key]);
+  }
+}
+
+console.log(resultsArr);
 
 let blockText = document.createElement("div");
 
-let textConclusion = document.createElement("p");
-textConclusion.classList.add("p-results");
-textConclusion.innerHTML = conclus1;
-blockText.appendChild(textConclusion);
+// let textConclusion = document.createElement("p");
+// textConclusion.classList.add("p-results");
+// textConclusion.innerHTML = conclus1;
+// blockText.appendChild(textConclusion);
