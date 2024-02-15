@@ -8,7 +8,7 @@
 @import url(./vakanc-conteiner.css);
 @import url(./btn-top.css);
 @import url(./test.css);
-
+@import url(./results.css);
 
 
 * {
@@ -24,7 +24,7 @@
     font-size: 42px;
     color: #15497E;
     display: flex;
-    overflow: hidden;
+        /* overflow: hidden; */
     text-align: center;
 }
 
@@ -42,5 +42,9 @@
     color: white;
 }
 
-
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 

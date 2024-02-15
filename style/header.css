@@ -38,7 +38,7 @@
     color: #15497E;
     font-size: 20px;
     transition: 0.5s;
-    height: 5vh;
+    height: 8vh;
     width: 18vh;
     display: flex;
     align-items: center;
@@ -49,4 +49,9 @@
 
 .menu-link:hover {
     text-decoration: underline;
+}
+
+.menu-1 > a {
+    height: 100%;
+    display: flex;
 }

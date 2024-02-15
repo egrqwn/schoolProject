@@ -218,6 +218,6 @@ againBtn.onclick = function () {
   aBtn.classList.remove("selected");
   bBtn.classList.remove("selected");
   checkPick();
+  localStorage.clear();
 };
 
-// export {similarity};
