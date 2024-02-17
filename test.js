@@ -25,50 +25,50 @@ let aBtn = document.querySelector(".btn-a");
 let bBtn = document.querySelector(".btn-b");
 forwardBtn.disabled = true;
 
-let testResults = [
-  "1b",
-  "2b",
-  "3a",
-  "4b",
-  "5b",
-  "6b",
-  "7a",
-  "8b",
-  "9a",
-  "10b",
-  "11a",
-  "12b",
-  "13a",
-  "14b",
-  "15b",
-  "16a",
-  "17b",
-  "18a",
-  "19b",
-  "20a",
-  "21b",
-  "22b",
-  "23a",
-  "24a",
-  "25b",
-  "26b",
-  "27b",
-  "28b",
-  "29a",
-  "30a",
-  "31b",
-  "32b",
-  "33a",
-  "34b",
-  "35a",
-  "36b",
-  "37a",
-  "38b",
-  "39a",
-  "40b",
-  "41a",
-  "42b",
-];
+// let testResults = [
+//   "1b",
+//   "2b",
+//   "3a",
+//   "4b",
+//   "5b",
+//   "6b",
+//   "7a",
+//   "8b",
+//   "9a",
+//   "10b",
+//   "11a",
+//   "12b",
+//   "13a",
+//   "14b",
+//   "15b",
+//   "16a",
+//   "17b",
+//   "18a",
+//   "19b",
+//   "20a",
+//   "21b",
+//   "22b",
+//   "23a",
+//   "24a",
+//   "25b",
+//   "26b",
+//   "27b",
+//   "28b",
+//   "29a",
+//   "30a",
+//   "31b",
+//   "32b",
+//   "33a",
+//   "34b",
+//   "35a",
+//   "36b",
+//   "37a",
+//   "38b",
+//   "39a",
+//   "40b",
+//   "41a",
+//   "42b",
+// ];
 
 let similarityArray = [0, 0, 0, 0, 0, 0];
 let maxElem = similarityArray[0];
@@ -89,34 +89,34 @@ function checkPick() {
 }
 
 function checkCompleteBtn() {
-  if (testResults.length == 42) {
+  if (results.length == 42) {
     endBtn.disabled = false;
   }
 }
 
 function similarity() {
-  for (let i = 0; i < testResults.length; i++) {
+  for (let i = 0; i < results.length; i++) {
     for (let j = 0; j < answer1.length; j++) {
-      if (testResults[i] == answer1[j]) {
+      if (results[i] == answer1[j]) {
         similarityArray[0]++;
       }
-      if (testResults[i] == answer2[j]) {
+      if (results[i] == answer2[j]) {
         similarityArray[1]++;
       }
 
-      if (testResults[i] == answer3[j]) {
+      if (results[i] == answer3[j]) {
         similarityArray[2]++;
       }
 
-      if (testResults[i] == answer4[j]) {
+      if (results[i] == answer4[j]) {
         similarityArray[3]++;
       }
 
-      if (testResults[i] == answer5[j]) {
+      if (results[i] == answer5[j]) {
         similarityArray[4]++;
       }
 
-      if (testResults[i] == answer6[j]) {
+      if (results[i] == answer6[j]) {
         similarityArray[5]++;
       }
     }
@@ -135,11 +135,9 @@ function similarity() {
     }
   }
 
-  console.log(maxElem);
+  console.log(maxElem); 
   console.log(similarityArray);
 }
-
-similarity();
 
 endBtn.onclick = function () {
   similarity();

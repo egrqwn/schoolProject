@@ -84,9 +84,10 @@ function fastFetch() {
         let a = document.createElement("a");
 
         a.href = data["items"][i]["alternate_url"];       
-
+        a.target = '_blank'
         a.innerHTML = "Посмотреть вакансию на hh.ru";
         span.appendChild(a);
+
       }
 
       return data;
@@ -175,5 +176,5 @@ function hhClear() {
   }
 }
 
-const slideInterval = 5000;
+const slideInterval = 8000;
 setInterval(changeSlide, slideInterval);

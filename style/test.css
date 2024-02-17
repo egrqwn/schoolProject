@@ -11,6 +11,11 @@ h1 {
     color: #15497E;
 }
 
+h2 {
+    text-align: center;
+    color: #15497E;
+}
+
 .variants-conteiner {
     display: flex;
     justify-content: center;

@@ -28,7 +28,7 @@
 }
    
 .slide > p{
-    height:400px;
+    height:auto;
     width: 700px;
     font-size: 22px;
     display: flex;
@@ -37,5 +37,8 @@
     position: absolute;
     top: 10px;
     left: 10px;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    text-align: justify;
 }
 
