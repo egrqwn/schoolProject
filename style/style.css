@@ -52,3 +52,67 @@
     align-items: center;
 }
 
+@media (max-width: 400px) {
+    .menu-link {
+        font-size: 16px;
+        margin: 0;
+        width: 12vh;
+    }
+
+    .h1-head {
+        font-size: 24px;
+    }
+
+    .slider {
+        height: 233px;
+    }
+
+    .slide > p {
+        font-size: 12px;
+        width: 200px;
+        line-height: 1em;
+        text-align: center;
+        padding: 5px 10px;
+    }
+
+    .block-choice-prof {
+        width: 100%;
+    }
+
+    .subject-pick {
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .subject {
+        height: 110px;
+        width: 110px;
+
+    }
+
+    .icon-subject {
+        height: 200px;
+        width: 140px;
+    }
+
+    .prof {
+        width: 100vh;
+    }
+    .column-card > button {
+        width: 100px;
+    }
+
+    .vakanc-card {
+        height: 30vh;
+    }
+
+    .variants-conteiner{
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .btn-a, .btn-b {
+        font-size: 16px;
+        width: 150px;
+    }
+}
