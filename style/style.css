@@ -96,10 +96,11 @@
     }
 
     .prof {
-        width: 100vh;
+        width: 95vh;
+        height: 30vh;
     }
     .column-card > button {
-        width: 100px;
+        width: 130px;
     }
 
     .vakanc-card {

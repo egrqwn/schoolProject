@@ -37,8 +37,9 @@
     position: absolute;
     top: 10px;
     left: 10px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
     border-radius: 10px;
     text-align: justify;
+    text-shadow: 1px 1px white;
 }
 
