@@ -9,8 +9,6 @@
     justify-content: space-around;
 }
 
-
-
 .column-card > p {
     padding: 0 10px;
     text-align: center;
@@ -37,7 +35,7 @@
 }
 
 .prof  img {
-   height: 40vh;
+   height: 35vh;
 }
 
 .prof > div{
@@ -46,6 +44,7 @@
     justify-content: center;
     align-items: center;
 }
+
 
 .prof > h3 {
     width: 25%;

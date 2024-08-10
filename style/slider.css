@@ -1,10 +1,13 @@
 .slider {
     position: relative;
-    width: 65%;
-    height: 400px;
+    width: 90%;
+    height: 600px;
     overflow: hidden;
-    border: 1px solid black;
-  }
+    background: #d8d4d4;
+    box-shadow: 1px 3px 14px #2b37d8;
+    margin: 20px 0;
+    margin-bottom: 100px;
+}
    
 .slide {
     position: absolute;
@@ -15,18 +18,28 @@
 }
 
 .slide-img {
-    width: 70%;
+    width: 100%;
     height: 100%;
+    position: relative;
 }
 
 .slide:first-child {
     opacity: 1;
 }
    
-.slide > p {
-    color: black;
-    font-size: 20px;
+.slide > p{
+    height:auto;
+    width: 700px;
+    font-size: 22px;
     display: flex;
-    justify-content: flex-start;
-    width: 50%;
+    line-height: 1.4em;
+    padding: 5px 10px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    backdrop-filter: blur(20px);
+    border-radius: 10px;
+    text-align: justify;
+    text-shadow: 1px 1px white;
 }
+

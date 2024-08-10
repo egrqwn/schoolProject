@@ -1,15 +1,24 @@
 @import url(./blockChoice.css);
 @import url(./header.css);
-@import url(./professtions.css);
+@import url(./professions.css);
 @import url(./vakancies.css);
-@import url(./vakanc.css);
+@import url(./vakanc-card.css);
 @import url(./slider.css);
 @import url(./subjectPick.css);
+@import url(./vakanc-conteiner.css);
+@import url(./btn-top.css);
+@import url(./test.css);
+@import url(./results.css);
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 * {
     margin: 0;
     padding: 0;
-    font-family: '', sans-serif;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
     overflow-x: hidden;
 }
 
@@ -19,11 +28,11 @@
     font-size: 42px;
     color: #15497E;
     display: flex;
-    overflow: hidden;
+        /* overflow: hidden; */
     text-align: center;
 }
 
-.search {
+.main {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
@@ -37,46 +46,74 @@
     color: white;
 }
 
-
-
-.city-price {
+.content {
     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.city {
-    color: #3912e6;
+@media (max-width: 400px) {
+    .menu-link {
+        font-size: 16px;
+        margin: 0;
+        width: 12vh;
+    }
+
+    .h1-head {
+        font-size: 24px;
+    }
+
+    .slider {
+        height: 233px;
+    }
+
+    .slide > p {
+        font-size: 12px;
+        width: 200px;
+        line-height: 1em;
+        text-align: center;
+        padding: 5px 10px;
+    }
+
+    .block-choice-prof {
+        width: 100%;
+    }
+
+    .subject-pick {
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .subject {
+        height: 90px;
+        width: 90px;
+    }
+
+    .icon-subject {
+        height: 180px;
+        width: 120px;
+        margin: 5px;
+    }
+
+    .prof {
+        width: 95vh;
+        height: 35vh;
+    }
+    .column-card > button {
+        width: 130px;
+    }
+
+    .vakanc-card {
+        height: 30vh;
+    }
+
+    .variants-conteiner{
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .btn-a, .btn-b {
+        font-size: 16px;
+        width: 150px;
+    }
 }
-
-.city-price > p {
-    padding: 0 5vh;
-}
-
-.requirements {
-    padding: 10px 0;
-}
-
-.requirements > h4 {
-    padding: 10px 0;
-}
-
-
-
-span {
-    color: #e61414;
-}
-
-span > a {
-    text-decoration: none;
-    color: #3912e6;
-}
-
-.check-vakanc:hover {
-    color: #e61414;
-    text-decoration: underline;
-
-}
-
-.check-vakanc:hover > span > a  {
-    color: #e61414;
-}
-

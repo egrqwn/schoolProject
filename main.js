@@ -1,64 +1,15 @@
 import profDescription from "./profDescription.js";
 import professions from "./professions.js";
 import changeSlide from "./slider.js";
-
-// let selectProf = document.querySelector('.subject');
-// let select1 = document.querySelector('.professions1');
-
-// select1.onchange = function() {
-//     let value  = select1.value;
-//     console.log(value);
-//     let text = select1.options[select1.selectedIndex].text;
-//     console.log(text);
-// }
-
-// let select2 = document.querySelector('.professions2');
-
-// select2.onchange = function() {
-//     let value = select2.value;
-//     console.log(value);
-//     let text = select2.options[select2.selectedIndex].text;
-//     console.log(text);
-// }
-
-// import Chart from 'chart.js'
-
-// (async function() {
-//   const data = [
-//     { year: 2010, count: 10 },
-//     { year: 2011, count: 20 },
-//     { year: 2012, count: 15 },
-//     { year: 2013, count: 25 },
-//     { year: 2014, count: 22 },
-//     { year: 2015, count: 30 },
-//     { year: 2016, count: 28 },
-//   ];
-
-//   new Chart(
-//     document.getElementById('acquisitions'),
-//     {
-//       type: 'bar',
-//       data: {
-//         labels: data.map(row => row.year),
-//         datasets: [
-//           {
-//             label: 'Acquisitions by year',
-//             data: data.map(row => row.count)
-//           }
-//         ]
-//       }
-//     }
-//   );
-// })();
+import trackScroll from "./btn-top.js";
+import goTop from "./btn-top.js";
 
 const url = "https://api.hh.ru/vacancies";
 const params = {
   text: "",
-  per_page: 100,
+  per_page: 70,
   page: 1,
 };
-
-//console.log(url + "?" + new URLSearchParams(params));
 
 let choiceSet = new Set();
 
@@ -67,19 +18,88 @@ let classArray = document.querySelector(".block-choice-prof").children;
 let btnChoice = document.querySelector(".pick-btn");
 let profBlock = document.querySelector(".professions");
 let btnDelete = document.querySelector(".delete");
-let vakanc = document.querySelector(".vakancies");
+let vakancies = document.querySelector(".vakancies");
+let vakanciesConteiner = document.querySelector(".vakancies-conteiner");
 
 function fastFetch() {
-  fetch(url + "?" + new URLSearchParams((params.text = "")))
-    .then((response) => response.json())
-    .then((data) => console.log(data))
+  fetch(url + "?" + new URLSearchParams(params))
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+      console.log(typeof data);
+      for (let i = 0; i < data["items"].length; i++) {
+        console.log(1);
+
+        let vakancCard = document.createElement("div");
+        vakancCard.classList.add("vakanc-card");
+        vakanciesConteiner.appendChild(vakancCard);
+
+        let h3 = document.createElement("h3");
+        h3.innerHTML = data["items"][i].name;
+        vakancCard.appendChild(h3);
+
+        let cityPrice = document.createElement("div");
+        cityPrice.classList.add("city-price");
+        vakancCard.appendChild(cityPrice);
+
+        if (data.items[i].address !== null && data.items[i].salary !== null) {
+          let p = document.createElement("p");
+          p.classList.add("city");
+          p.innerHTML = data["items"][i].address.city;
+          cityPrice.appendChild(p);
+
+          let salary = document.createElement("p");
+          salary.innerHTML = data["items"][i].salary.from;
+          cityPrice.appendChild(salary);
+
+          let currency = document.createElement("p");
+          currency.innerHTML = data["items"][i].salary.currency;
+          cityPrice.appendChild(currency);
+        }
+     
+        let requirements = document.createElement("div");
+        requirements.classList.add("requirements");
+        vakancCard.appendChild(requirements);
+
+        let h4 = document.createElement("h4");
+        h4.innerHTML = "Требования";
+        requirements.appendChild(h4);
+
+        let pRequirements = document.createElement("p");
+        pRequirements.innerHTML = data["items"][i].snippet.requirement;
+        requirements.appendChild(pRequirements);
+
+        let hr = document.createElement("hr");
+        vakancCard.appendChild(hr);
+
+        let checkVakanc = document.createElement("div");
+        checkVakanc.classList.add("check-vakanc");
+        vakancCard.appendChild(checkVakanc);
+
+        let span = document.createElement("span");
+        checkVakanc.appendChild(span);
+
+        let a = document.createElement("a");
+
+        a.href = data["items"][i]["alternate_url"];       
+        a.target = '_blank'
+        a.innerHTML = "Посмотреть вакансию на hh.ru";
+        span.appendChild(a);
+
+      }
+
+      return data;
+    })
     .catch((error) => console.error(error));
 }
 
 btnChoice.onclick = () => {
   hhClear();
-  fastFetch();
+  // fastFetch();
   profBlock.innerHTML = "";
+
   for (let item of choiceSet) {
     let prof = professions[item];
     prof.map((name) => {
@@ -107,18 +127,16 @@ btnChoice.onclick = () => {
       columnCard.appendChild(el3);
 
       let el4 = document.createElement("button");
-      el4.innerHTML = "Посмотреть вакансию";
+      el4.classList.add("check-vakanc");
+      el4.innerHTML = "Перейти к вакансии";
       columnCard.appendChild(el4);
 
-      let headhunt = name;
-      headhunt =
-        "https://api.hh.ru/widgets/vacancies/search?count=5&locale=RU&links_color=1560b2&border_color=1560b2&text=" +
-        encodeURIComponent(headhunt) +
-        "&currency=RUR&only_with_salary=false";
-      hhru = document.createElement("script");
-      hhru.className = "hh-script";
-      hhru.src = headhunt;
-      vakanc.appendChild(hhru);
+      el4.onclick = () => {
+        params.text = "";
+        params.text = name;
+
+        fastFetch();
+      };
     });
   }
 };
@@ -144,6 +162,7 @@ btnDelete.onclick = () => {
   choiceSet.clear();
   params.text = "";
   profBlock.innerHTML = "";
+  vakanciesConteiner.innerHTML = "";
   hhClear();
   for (let i of classArray) {
     i.classList.remove("choice-subject");
@@ -151,10 +170,11 @@ btnDelete.onclick = () => {
 };
 
 function hhClear() {
-  let divs = vakanc.querySelectorAll("div");
+  let divs = vakancies.querySelectorAll("div");
   for (let i = divs.length - 1; i >= 0; i--) {
     divs[i].remove();
   }
 }
 
+const slideInterval = 8000;
 setInterval(changeSlide, slideInterval);

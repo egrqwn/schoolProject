@@ -1,6 +1,5 @@
 let currentIndex = 0;
 const slides = document.querySelectorAll(".slide");
-const slideInterval = 5000;
 
 function changeSlide() {
   slides[currentIndex].style.opacity = 0;

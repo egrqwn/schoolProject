@@ -1,0 +1,6 @@
+.vakancies-conteiner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: #e6e0e0;
+}
