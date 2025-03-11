@@ -11,14 +11,24 @@ h1 {
     color: #15497E;
 }
 
-h2 {
+h3 {
     text-align: center;
     color: #15497E;
 }
 
 .variants-conteiner {
     display: flex;
-    justify-content: center;
+    justify-content:center;
+}
+
+.variant-pick1  {
+    display: flex;
+    justify-content: end;
+}
+
+.variant-pick2 {
+    display: flex;
+    justify-content: start;
 }
 
 .btn-a, .btn-b {

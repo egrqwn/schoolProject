@@ -1,6 +1,5 @@
 import profDescription from "./profDescription.js";
 import professions from "./professions.js";
-import changeSlide from "./slider.js";
 import trackScroll from "./btn-top.js";
 import goTop from "./btn-top.js";
 
@@ -81,12 +80,12 @@ function fastFetch() {
         let span = document.createElement("span");
         checkVakanc.appendChild(span);
 
-        let a = document.createElement("a");
+        let link = document.createElement("a");
 
-        a.href = data["items"][i]["alternate_url"];       
-        a.target = '_blank'
-        a.innerHTML = "Посмотреть вакансию на hh.ru";
-        span.appendChild(a);
+        link.href = data["items"][i]["alternate_url"];       
+        link.target = '_blank'
+        link.innerHTML = "Посмотреть вакансию на hh.ru";
+        span.appendChild(link);
 
       }
 
@@ -128,7 +127,7 @@ btnChoice.onclick = () => {
 
       let el4 = document.createElement("button");
       el4.classList.add("check-vakanc");
-      el4.innerHTML = "Перейти к вакансии";
+      el4.innerHTML = "Перейти к вакансиям";
       columnCard.appendChild(el4);
 
       el4.onclick = () => {
@@ -138,7 +137,7 @@ btnChoice.onclick = () => {
         fastFetch();
       };
     });
-  }
+  };
 };
 
 for (let i = 0; i < classArray.length; i++) {
@@ -153,10 +152,10 @@ for (let i = 0; i < classArray.length; i++) {
         params.text += professions[classArray[i].innerText].join(" ") + " ";
         console.log(params.text);
         classArray[i].classList.add("choice-subject");
-      }
-    }
+      };
+    };
   };
-}
+};
 
 btnDelete.onclick = () => {
   choiceSet.clear();
@@ -166,15 +165,13 @@ btnDelete.onclick = () => {
   hhClear();
   for (let i of classArray) {
     i.classList.remove("choice-subject");
-  }
+  };
 };
 
 function hhClear() {
   let divs = vakancies.querySelectorAll("div");
   for (let i = divs.length - 1; i >= 0; i--) {
     divs[i].remove();
-  }
-}
+  };
+};
 
-const slideInterval = 8000;
-setInterval(changeSlide, slideInterval);
